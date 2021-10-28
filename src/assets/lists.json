@@ -1,0 +1,5 @@
+[
+  { "_id": "1", "name": "Mercado", "category": "Alimentação" },
+  { "_id": "2", "name": "Viajem", "category": "Diversão" },
+  { "_id": "3", "name": "Roupas", "category": "Vestuario" }
+]

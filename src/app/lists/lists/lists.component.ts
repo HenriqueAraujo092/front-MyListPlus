@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { List } from '../models/list';
+import { ListsService } from '../services/lists.service';
 
 @Component({
   selector: 'app-lists',
@@ -8,17 +10,17 @@ import { List } from '../models/list';
 })
 export class ListsComponent implements OnInit {
 
-  lists: List[] = [
-    { _id: '1', name: 'Mercado', category:'Alimentação' },
-    { _id: '2', name: 'Viajem', category:'Diversão' },
-    { _id: '2', name: 'Roupas', category:'Vestuario' }
-  ];
+  lists$: Observable<List[]>;
   displayedColumns = ['name', 'category'];
 
-  constructor() {
+  // listsService: ListsService;
+
+  constructor(private listsService: ListsService) {
+    this.lists$ = this.listsService.allLists();
   }
 
   ngOnInit(): void {
+
   }
 
 }
